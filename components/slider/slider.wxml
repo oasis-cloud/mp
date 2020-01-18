@@ -1,0 +1,6 @@
+<!--components/slider/slider.wxml-->
+<view class="container">
+  <view class="list-w" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd" bindtouchmove="onTouchMove">
+    <view wx:for="{{list}}" class="list-item" style="transform: scale({{positions[index]['zoom']}});z-index:{{positions[index]['zIndex']}};left:{{positions[index]['left']}}rpx;">{{item}}</view>
+  </view>
+</view>

@@ -1,0 +1,10 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="list-w" bindtouchstart="onTouchStart" bindtouchend="onTouchEnd" bindtouchmove="onTouchMove">
+    <view wx:for="{{list}}" class="list-item" style="transform: scale({{listPosition[index]['s']}});z-index:{{listPosition[index]['zindex']}};left:{{listPosition[index]['x']}}rpx; ">{{index}}</view>
+  </view>
+</view>
+
+<view>
+  <slider list="{{[0,1,2,3,4]}}" width="{{240}}"></slider>
+</view>
