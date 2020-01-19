@@ -17,6 +17,6 @@ view{
   width: 240rpx;
   height: 240rpx;
   background: mediumaquamarine;
-  margin-right: 10rpx;
+  margin-right: 20rpx;
   transition: 0.3s;
 }

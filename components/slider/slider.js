@@ -12,7 +12,7 @@ Component({
     },
     zoomOut: {
       type: Number,
-      value: 0.89
+      value: 0.9
     },
     prevLeft: {
       type: Number,
@@ -20,7 +20,7 @@ Component({
     },
     curLeft: {
       type: Number,
-      value: 0
+      value: 28
     },
     zindex:{
       type: Number,
@@ -68,7 +68,7 @@ Component({
           }
         } else {
           position = {
-            left: index * this.data.width + (this.data.width * this.data.zoomIn - this.data.width + this.data.curLeft),
+            left: index * (this.data.width + 20) + 40,
             zoom: 1,
             zIndex: 1
           }
@@ -105,27 +105,28 @@ Component({
         // 重新计算位置
         positions.map((item, index) => {
           item.zoom = 1
-          item.left += -1 * (this.data.width + (this.data.width * this.data.zoomIn - this.data.width + this.data.curLeft))
+          item.left += -1 * (this.data.width + 20 + 40)
         })
+        let lastItemIndex
         if(this.data.curIndex == 0) {
-          positions[this.sliderLen - 1] = {
-            zoom: 1,
-            zIndex: 1,
-            left: (this.sliderLen - 2) * this.data.width + (this.data.width * this.data.zoomIn - this.data.width + this.data.curLeft)
-          }
+          lastItemIndex = this.sliderLen - 1
         } else {
           // 设置缩小的元素，为了挪动到最后显示
-          positions[this.data.curIndex - 1] = {
-            zoom: 1,
-            zIndex: 1,
-            left: (this.sliderLen - 2) * this.data.width + (this.data.width * this.data.zoomIn - this.data.width + this.data.curLeft)
-          }
+          lastItemIndex = this.data.curIndex - 1
         }
+        // 计算最后一个元素的位置
+        positions[lastItemIndex] = {
+          zoom: 1,
+          zIndex: 1,
+          left: (this.sliderLen - 2) * (this.data.width + 20) + 40
+        }
+        // 当前元素位置
         positions[this.data.curIndex] = {
           zoom: this.data.zoomOut,
           left: this.data.prevLeft,
           zIndex: this.data.prevZindex
         }
+        // 下一元素位置
         console.log('nextIndex', nextIndex)
         positions[nextIndex] = {
           zoom: this.data.zoomIn,
