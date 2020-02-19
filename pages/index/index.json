@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "slider": "/components/slider/slider"
+    "myswiper": "/components/swiper/swiper"
   }
 }

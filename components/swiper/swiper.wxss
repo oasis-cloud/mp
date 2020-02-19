@@ -1,0 +1,26 @@
+/* components/swiper/swiper.wxss */
+view {
+  margin: 0;
+  padding: 0;
+}
+.list-w {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  height: 240rpx
+}
+
+.list-item {
+  left: 0;
+  flex: none;
+  color: #fff;
+  width: 240rpx;
+  height: 240rpx;
+  font-size: 50rpx;
+  transition: 0.3s;
+  position: absolute;
+  text-align: center;
+  line-height: 240rpx;
+  margin-right: 20rpx;
+  background: #e53935;
+}
